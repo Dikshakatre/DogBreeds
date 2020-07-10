@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.prevail.assignment.dogbreeds.viewmodel.DogBreedsViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/colorPrimaryDark">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="5dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/menu" />
+
+                <TextView
+                    android:id="@+id/tvToolBarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/app_name"/>
+
+                <TextView
+                    android:id="@+id/tvRefreshAllBreads"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="15sp"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/refresh"/>
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.diksha.example.dogs.views.DogBreedsActivity"
+            android:layout_below="@+id/toolbar"
+            android:background="@android:color/darker_gray">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listOfBreeds"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:visibility="gone"
+                app:setAdapter="@{model.getAdapter()}" />
+
+            <ImageView
+                android:id="@+id/ivLoading"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/loading"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvTryAgain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/refresh_try_again"
+                android:textColor="@android:color/black"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:visibility="gone"
+                android:textSize="25sp"/>
+
+        </FrameLayout>
+    </RelativeLayout>
+</layout>

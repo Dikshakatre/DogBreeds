@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Dog Breeds</string>
+    <string name="breedName">Breed Name</string>
+    <string name="viewMorePhotos"><u>View More Photos</u></string>
+    <string name="refresh"><u>Refresh</u></string>
+    <string name="splash_text">We don\'t deserve dogs</string>
+    <string name="toast_error_message">Something went wrong! \n Click Refresh</string>
+    <string name="refresh_try_again">Click Refresh OR \n check internet connection.</string>
+</resources>
